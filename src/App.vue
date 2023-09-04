@@ -1,59 +1,41 @@
 <template>
-  <el-card class="exam-card" v-for="(item, index) in questions" :key="index">
-    <h2 class="exam-title">{{ `${index}. ${item.question}` }}</h2>
-    <el-radio-group v-model="selectedAnswer" class="exam-options">
-      <el-radio v-for="(option, index) in item.options" :key="index" :label="option">{{ option }}</el-radio>
-    </el-radio-group>
+  <el-card class="exam-card" v-for="(item, index) in dataContent.questions" :key="index">
+    <h2 class="exam-title">{{ `${index + 1}. ${item.question}` }}</h2>
+    <div class="exam-options">
+      <label class="exam-label" v-for="(option, optionIndex) in item.options" :key="optionIndex">
+        <input type="radio" :name="`question-${index}`" :value="option" v-model="item.userAnswer" :disabled="dataContent.showAnswer" :class="{ 'correct-answer': dataContent.showAnswer && option === item.answer && option === item.userAnswer, 'wrong-answer': dataContent.showAnswer && option === item.userAnswer && option !== item.answer }">
+        <span :class="{ 'correct-answer': dataContent.showAnswer && option === item.answer, 'wrong-answer': dataContent.showAnswer && option === item.userAnswer && option !== item.answer }">{{ option }}</span>
+      </label>
+    </div>
   </el-card>
-  <el-button type="primary" @click="checkAnswer">Submit</el-button>
+  <el-button type="primary" @click="checkAnswers">Submit</el-button>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 
-const questions = [
-  {
-    question: "Question 1",
-    options: ['Option A', 'Option B', 'Option C', 'Option D'],
-    answer: 'Option A',
-  },
-  {
-    question: "Question 1",
-    options: ['Option A', 'Option B', 'Option C', 'Option D'],
-    answer: 'Option A',
-  },
-  {
-    question: "Question 1",
-    options: ['Option A', 'Option B', 'Option C', 'Option D'],
-    answer: 'Option A',
-  },
-  {
-    question: "Question 1",
-    options: ['Option A', 'Option B', 'Option C', 'Option D'],
-    answer: 'Option A',
-  },
-  {
-    question: "Question 1",
-    options: ['Option A', 'Option B', 'Option C', 'Option D'],
-    answer: 'Option A',
-  },
-  // 可以添加更多的考題到這裡
-];
+const dataContent = ref({
+  showAnswer: false,
+  questions: [
+    {
+      question: "Question 1",
+      options: ['Option A', 'Option B', 'Option C', 'Option D'],
+      answer: 'Option A',
+      userAnswer: '',
+    },
+    {
+      question: "Question 2",
+      options: ['Option A', 'Option B', 'Option C', 'Option D'],
+      answer: 'Option A',
+      userAnswer: '',
+    },
+  ]
+});
 
-const currentQuestionIndex = ref(0);
-const selectedAnswer = ref('');
-const showFeedback = ref(false);
-
-const isCorrect = ref(false);
-
-const checkAnswer = () => {
-  isCorrect.value = selectedAnswer.value === questions[currentQuestionIndex.value].answer;
-  showFeedback.value = true;
+const checkAnswers = () => {
+  dataContent.value.showAnswer = true;
 };
 
-onMounted(() => {
-  // 可以在這裡做初始化等操作
-});
 </script>
 
 <style scoped>
@@ -62,6 +44,7 @@ onMounted(() => {
   margin: 0 auto;
   padding: 20px;
   margin-bottom: 20px;
+  width: 80%;
 }
 
 .exam-title {
@@ -73,5 +56,56 @@ onMounted(() => {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
+}
+
+.exam-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.exam-label input {
+  margin-right: 10px;
+}
+
+.correct-answer {
+  color: green !important;
+}
+
+.wrong-answer {
+  color: red !important;
+}
+
+input[type='radio'].correct-answer:checked:after {
+  background-color: green;
+}
+
+input[type='radio'].wrong-answer:checked:after {
+  background-color: red;
+}
+
+input[type='radio']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 13px;
+  height: 13px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
 }
 </style>
