@@ -7,7 +7,8 @@
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:vue/vue3-essential"
+        "plugin:vue/vue3-essential",
+        "plugin:prettier/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -16,10 +17,12 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "vue"
+        "vue",
+        "prettier"
     ],
     "rules": {
         // 添加這個規則以要求句尾必須添加分號
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "prettier/prettier": "error"
     }
 }
