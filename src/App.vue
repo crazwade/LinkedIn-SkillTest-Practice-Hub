@@ -1,46 +1,35 @@
 <template>
   <el-card
-    class="exam-card max-w-screen-md mx-auto p-5 mb-5 w-80"
+    class="exam-card max-w-screen-md mx-auto px-5 py-3 mb-8 w-[90%]"
     v-for="(item, index) in dataContent.questions"
     :key="index"
   >
-    <h2 class="exam-title text-2xl mb-4">
+    <h2 class="exam-title text-xl font-semibold mb-4">
       {{ `${index + 1}. ${item.question}` }}
     </h2>
-    <div class="exam-options mb-[20px] flex flex-col">
+    <pre
+      v-if="item.code"
+      class="py-5 px-3 bg-gray-300 whitespace-pre-wrap mb-3"
+      >{{ item.code }}</pre
+    >
+    <div
+      class="exam-options mb-[20px] flex flex-col justify-center items-start"
+    >
       <label
-        class="exam-label flex justify-center items-center"
+        class="exam-label flex justify-center items-center cursor-pointer py-1 px-3 w-full bg-slate-200 my-2 hover:bg-slate-300"
         v-for="(option, optionIndex) in item.options"
         :key="optionIndex"
+        :class="{
+          'is-Selected': !dataContent.showAnswer && item.userAnswer === option,
+          'correct-answer': dataContent.showAnswer && option === item.answer,
+          'wrong-answer':
+            dataContent.showAnswer &&
+            option === item.userAnswer &&
+            option !== item.answer,
+        }"
+        @click="selectThis(index, option)"
       >
-        <input
-          type="radio"
-          :name="`question-${index}`"
-          :value="option"
-          v-model="item.userAnswer"
-          :disabled="dataContent.showAnswer"
-          class="mr-[10px]"
-          :class="{
-            'correct-answer':
-              dataContent.showAnswer &&
-              option === item.answer &&
-              option === item.userAnswer,
-            'wrong-answer':
-              dataContent.showAnswer &&
-              option === item.userAnswer &&
-              option !== item.answer,
-          }"
-        />
-        <span
-          :class="{
-            'correct-answer': dataContent.showAnswer && option === item.answer,
-            'wrong-answer':
-              dataContent.showAnswer &&
-              option === item.userAnswer &&
-              option !== item.answer,
-          }"
-          >{{ option }}</span
-        >
+        {{ option }}
       </label>
     </div>
   </el-card>
@@ -54,65 +43,69 @@ const dataContent = ref({
   showAnswer: false,
   questions: [
     {
-      question: "Question 1",
-      options: ["Option A", "Option B", "Option C", "Option D"],
-      answer: "Option A",
+      question: "How can you check your current git version?",
+      options: ["git --v", "git --version", "git --option", "git --current"],
+      answer: "git --version",
       userAnswer: "",
     },
     {
-      question: "Question 2",
-      options: ["Option A", "Option B", "Option C", "Option D"],
-      answer: "Option A",
+      question:
+        "What command lets you create a connection between a local and remote repository?",
+      options: [
+        "git remote add new",
+        "git remote add origin",
+        "git remote new origin",
+        "git remote origin",
+      ],
+      answer: "git remote add origin",
+      userAnswer: "",
+    },
+    {
+      question:
+        "Looking at the following commands, describe what is happening.",
+      code: `git checkout feature-user-location
+git cherry-pick kj2342134sdf090093f0sdgasdf99sdfo992mmmf9921231`,
+      options: [
+        "The commit is being tagged for release on the feature-user-location branch",
+        "A commit is being copied from its original branch over to the feature-user-location branch",
+        "The commit is being cherry picked as the new HEAD of the commit history",
+        "A commit is being copied from the feature-user-location branch to the master branch",
+        "The branch is switched to the feature-user-location branch, and the specified commit is applied to the branch.",
+      ],
+      answer:
+        "A commit is being copied from its original branch over to the feature-user-location branch",
       userAnswer: "",
     },
   ],
 });
 
 const checkAnswers = () => {
+  // 檢查是否有未填
+  if (dataContent.value.questions.find((item) => item.userAnswer === "")) {
+    return;
+  }
   dataContent.value.showAnswer = true;
+};
+
+const selectThis = (questionsIndex: number, answer: string) => {
+  // 檢查是否已經結算
+  if (dataContent.value.showAnswer) {
+    return;
+  }
+  dataContent.value.questions[questionsIndex].userAnswer = answer;
 };
 </script>
 
 <style scoped>
+.is-Selected {
+  background-color: #79bbff;
+}
+
 .correct-answer {
-  color: green !important;
+  background-color: #66eb71;
 }
 
 .wrong-answer {
-  color: red !important;
-}
-
-input[type="radio"].correct-answer:checked:after {
-  background-color: green;
-}
-
-input[type="radio"].wrong-answer:checked:after {
-  background-color: red;
-}
-
-input[type="radio"]:after {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  top: -3px;
-  left: -1px;
-  position: relative;
-  content: "";
-  display: inline-block;
-  visibility: visible;
-  border: 2px solid white;
-}
-
-input[type="radio"]:checked:after {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  top: -3px;
-  left: -1px;
-  position: relative;
-  content: "";
-  display: inline-block;
-  visibility: visible;
-  border: 2px solid white;
+  background-color: #f36f6f;
 }
 </style>
