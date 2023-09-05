@@ -1,4 +1,10 @@
 <template>
+  <ResultDialog
+    :score="score"
+    :total="dataContent.questions.length"
+    :dialogVisable="ResultDialogVisable"
+    @close="handleDialogClose"
+  />
   <el-card
     class="exam-card max-w-screen-md mx-auto px-5 py-3 mb-8 w-[90%]"
     v-for="(item, index) in dataContent.questions"
@@ -38,6 +44,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import ResultDialog from "./components/ResultDialog.vue";
 
 const dataContent = ref({
   showAnswer: false,
@@ -78,13 +85,28 @@ git cherry-pick kj2342134sdf090093f0sdgasdf99sdfo992mmmf9921231`,
     },
   ],
 });
+const ResultDialogVisable = ref(false);
+const score = ref(0);
 
 const checkAnswers = () => {
+  score.value = 0;
   // 檢查是否有未填
   if (dataContent.value.questions.find((item) => item.userAnswer === "")) {
     return;
   }
   dataContent.value.showAnswer = true;
+
+  dataContent.value.questions.forEach((item) => {
+    if (item.answer === item.userAnswer) {
+      score.value += 1;
+    }
+  });
+
+  ResultDialogVisable.value = true;
+};
+
+const handleDialogClose = () => {
+  ResultDialogVisable.value = false;
 };
 
 const selectThis = (questionsIndex: number, answer: string) => {
