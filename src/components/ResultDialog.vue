@@ -5,9 +5,18 @@
     width="80%"
     :before-close="handleClose"
   >
-    <span>
+    <div class="text-xl">
       {{ `得分(正確/總題數)： ${score} / ${total}` }}
-    </span>
+    </div>
+    <div class="mt-5 text-2xl">
+      <span>正確率: </span>
+      <span
+        :class="rate > 60 ? 'text-green-500' : 'text-red-500'"
+        class="text-3xl font-extrabold"
+      >
+        {{ `${rate}%` }}
+      </span>
+    </div>
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="handleClose">關閉</el-button>
@@ -24,6 +33,10 @@ defineProps({
     required: true,
   },
   total: {
+    type: Number,
+    required: true,
+  },
+  rate: {
     type: Number,
     required: true,
   },

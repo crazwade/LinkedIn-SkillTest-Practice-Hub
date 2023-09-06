@@ -2,96 +2,138 @@
   <ResultDialog
     :score="score"
     :total="dataContent.questions.length"
+    :rate="scoreRate"
     :dialogVisable="ResultDialogVisable"
     @close="handleDialogClose"
   />
-  <el-card
-    class="exam-card max-w-screen-md mx-auto px-5 py-3 mb-8 w-[90%]"
-    v-for="(item, index) in dataContent.questions"
-    :key="index"
+  <div
+    v-if="!startExam"
+    class="flex flex-col w-full justify-center items-center"
   >
-    <h2 class="exam-title text-xl font-semibold mb-4">
-      {{ `${index + 1}. ${item.question}` }}
-    </h2>
-    <pre
-      v-if="item.code"
-      class="py-5 px-3 bg-gray-300 whitespace-pre-wrap mb-3"
-      >{{ item.code }}</pre
-    >
-    <div
-      class="exam-options mb-[20px] flex flex-col justify-center items-start"
-    >
-      <label
-        class="exam-label flex justify-center items-center cursor-pointer py-1 px-3 w-full bg-slate-200 my-2 hover:bg-slate-300"
-        v-for="(option, optionIndex) in item.options"
-        :key="optionIndex"
-        :class="{
-          'is-Selected': !dataContent.showAnswer && item.userAnswer === option,
-          'correct-answer': dataContent.showAnswer && option === item.answer,
-          'wrong-answer':
-            dataContent.showAnswer &&
-            option === item.userAnswer &&
-            option !== item.answer,
-        }"
-        @click="selectThis(index, option)"
+    <div class="flex justify-center items-center">
+      <label class="font-bold text-2xl">主題:</label>
+      <el-select
+        v-model="selectExam.title"
+        class="m-2"
+        placeholder="Select"
+        size="large"
       >
-        {{ option }}
-      </label>
+        <el-option
+          v-for="item in examTitle"
+          :key="item.value"
+          :label="item.title"
+          :value="item.value"
+        />
+      </el-select>
     </div>
-  </el-card>
-  <el-button type="primary" @click="checkAnswers">Submit</el-button>
+    <div class="flex justify-center items-center">
+      <label class="font-bold text-2xl">題數:</label>
+      <el-select
+        v-model="selectExam.total"
+        class="m-2"
+        placeholder="Select"
+        size="large"
+      >
+        <el-option
+          v-for="item in [10, 20, 30]"
+          :key="item"
+          :label="item"
+          :value="item"
+        />
+      </el-select>
+    </div>
+    <el-button type="primary" class="mt-5" @click="getExam">Start</el-button>
+  </div>
+  <div v-else>
+    <el-card
+      class="exam-card max-w-screen-md mx-auto px-5 py-3 mb-8 w-[90%]"
+      v-for="(item, index) in dataContent.questions"
+      :key="index"
+    >
+      <h2 class="exam-title text-xl font-semibold mb-4">
+        {{ `Q${index + 1}. ${item.question}` }}
+      </h2>
+      <pre
+        v-if="item.code"
+        class="py-5 px-3 bg-gray-300 whitespace-pre-wrap mb-3"
+        >{{ item.code }}</pre
+      >
+      <div
+        class="exam-options mb-[20px] flex flex-col justify-center items-start"
+      >
+        <label
+          class="exam-label flex justify-center items-center cursor-pointer py-1 px-3 w-full bg-slate-200 my-2 hover:bg-slate-300"
+          v-for="(option, optionIndex) in item.options"
+          :key="optionIndex"
+          :class="{
+            'is-Selected':
+              !dataContent.showAnswer && item.userAnswer === option,
+            'correct-answer': dataContent.showAnswer && option === item.answer,
+            'wrong-answer':
+              dataContent.showAnswer &&
+              option === item.userAnswer &&
+              option !== item.answer,
+          }"
+          @click="selectThis(index, option)"
+        >
+          {{ option }}
+        </label>
+      </div>
+    </el-card>
+    <el-button type="primary" @click="checkAnswers()"> 察看結果</el-button>
+    <el-button type="info" @click="restart()"> 重來</el-button>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 import ResultDialog from "./components/ResultDialog.vue";
+import { mdToQuestions } from "./mdToQuestions";
 
-const dataContent = ref({
+const examTitle = [
+  {
+    title: "Git",
+    value: "git",
+  },
+  {
+    title: "CSS",
+    value: "css",
+  },
+  {
+    title: "Front-end Development",
+    value: "frd",
+  },
+];
+
+const selectExam = ref({
+  title: "",
+  total: 10,
+});
+
+const dataContent = ref<{
+  showAnswer: boolean;
+  questions: {
+    question: string;
+    options: string[];
+    answer: string;
+    userAnswer: string;
+    code?: string;
+  }[];
+}>({
   showAnswer: false,
-  questions: [
-    {
-      question: "How can you check your current git version?",
-      options: ["git --v", "git --version", "git --option", "git --current"],
-      answer: "git --version",
-      userAnswer: "",
-    },
-    {
-      question:
-        "What command lets you create a connection between a local and remote repository?",
-      options: [
-        "git remote add new",
-        "git remote add origin",
-        "git remote new origin",
-        "git remote origin",
-      ],
-      answer: "git remote add origin",
-      userAnswer: "",
-    },
-    {
-      question:
-        "Looking at the following commands, describe what is happening.",
-      code: `git checkout feature-user-location
-git cherry-pick kj2342134sdf090093f0sdgasdf99sdfo992mmmf9921231`,
-      options: [
-        "The commit is being tagged for release on the feature-user-location branch",
-        "A commit is being copied from its original branch over to the feature-user-location branch",
-        "The commit is being cherry picked as the new HEAD of the commit history",
-        "A commit is being copied from the feature-user-location branch to the master branch",
-        "The branch is switched to the feature-user-location branch, and the specified commit is applied to the branch.",
-      ],
-      answer:
-        "A commit is being copied from its original branch over to the feature-user-location branch",
-      userAnswer: "",
-    },
-  ],
+  questions: [],
 });
 const ResultDialogVisable = ref(false);
+const startExam = ref(false);
 const score = ref(0);
+const scoreRate = ref(0);
 
 const checkAnswers = () => {
   score.value = 0;
+  scoreRate.value = 0;
   // 檢查是否有未填
   if (dataContent.value.questions.find((item) => item.userAnswer === "")) {
+    alert("尚未完成作答");
     return;
   }
   dataContent.value.showAnswer = true;
@@ -102,7 +144,16 @@ const checkAnswers = () => {
     }
   });
 
+  scoreRate.value = Math.floor((score.value / selectExam.value.total) * 100);
   ResultDialogVisable.value = true;
+};
+
+const restart = () => {
+  selectExam.value.title = "";
+  selectExam.value.total = 10;
+  dataContent.value.showAnswer = false;
+
+  startExam.value = false;
 };
 
 const handleDialogClose = () => {
@@ -115,6 +166,24 @@ const selectThis = (questionsIndex: number, answer: string) => {
     return;
   }
   dataContent.value.questions[questionsIndex].userAnswer = answer;
+};
+
+const getExam = () => {
+  if (selectExam.value.title === "") return;
+
+  const getQuestion = [...mdToQuestions(selectExam.value.title)];
+  // 隨機
+  const randomSelection = [];
+  // 随机选择10个元素并打乱顺序
+  for (let i = 0; i < selectExam.value.total; i++) {
+    const randomIndex = Math.floor(Math.random() * getQuestion.length);
+    const selectedElement = getQuestion.splice(randomIndex, 1)[0];
+    randomSelection.push(selectedElement);
+  }
+  dataContent.value.questions = randomSelection;
+  // dataContent.value.questions = getQuestion;
+
+  startExam.value = true;
 };
 </script>
 
@@ -131,3 +200,4 @@ const selectThis = (questionsIndex: number, answer: string) => {
   background-color: #f36f6f;
 }
 </style>
+./test.js
