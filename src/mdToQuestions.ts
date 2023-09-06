@@ -23,6 +23,8 @@ export const mdToQuestions = (target: string) => {
   let code = "";
   // 檢查範例程式碼區是否為標題到問題之間
   let checkCodeBlock = false;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   for (const line of lines) {
     if (line.startsWith("#### ")) {
       code = "";
@@ -40,19 +42,29 @@ export const mdToQuestions = (target: string) => {
     } else if (line.startsWith("- [ ] ")) {
       checkCodeBlock = false;
       // 選項
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       currentQuestion.options.push(line.slice(6).trim());
     } else if (line.startsWith("- [x] ")) {
       // 正確答案
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       currentQuestion.options.push(line.slice(6).trim());
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       currentQuestion.answer = line.slice(6).trim();
     } else if (line.startsWith("```")) {
       // 代碼塊
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       currentQuestion.code = line.slice(3).trim();
     } else if (checkCodeBlock) {
       if (line !== "") {
         code += `${line}\n`;
       }
     }
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     currentQuestion.code = code;
   }
 
