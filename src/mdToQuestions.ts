@@ -1,6 +1,8 @@
 import GIT from "./exam/gitExam.md?raw";
 import FRD from "./exam/fedExam.md?raw";
 import CSS from "./exam/cssExam.md?raw";
+import HTML from "./exam/htmlExam.md?raw";
+import JS from "./exam/jsExam.md?raw";
 // 測試用
 // import TEST from "./exam/test.md?raw";
 
@@ -17,6 +19,12 @@ export const mdToQuestions = (target: string) => {
       break;
     case "css":
       lines = CSS.split("\n");
+      break;
+    case "html":
+      lines = HTML.split("\n");
+      break;
+    case "js":
+      lines = JS.split("\n");
       break;
     default:
       console.log("error");

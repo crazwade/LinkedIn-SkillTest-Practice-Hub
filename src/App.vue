@@ -110,6 +110,14 @@ const examTitle = [
     title: "Front-end Development",
     value: "frd",
   },
+  {
+    title: "HTML",
+    value: "html",
+  },
+  {
+    title: "JavaScript",
+    value: "js",
+  },
 ];
 
 const selectExam = ref({
