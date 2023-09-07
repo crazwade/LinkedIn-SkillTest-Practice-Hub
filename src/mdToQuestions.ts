@@ -1,8 +1,12 @@
 import GIT from "./exam/gitExam.md?raw";
 import FRD from "./exam/fedExam.md?raw";
 import CSS from "./exam/cssExam.md?raw";
+// 測試用
+// import TEST from "./exam/test.md?raw";
 
 export const mdToQuestions = (target: string) => {
+  // 測試用
+  // lines = TEST.split("\n");
   let lines;
   switch (target) {
     case "git":
@@ -21,8 +25,10 @@ export const mdToQuestions = (target: string) => {
   let currentQuestion;
   // 程式法範例區
   let code = "";
+  let answerCode = "";
   // 檢查範例程式碼區是否為標題到問題之間
   let checkCodeBlock = false;
+  let checkAnswerBlock = false;
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   for (const line of lines) {
@@ -36,16 +42,27 @@ export const mdToQuestions = (target: string) => {
       currentQuestion = {
         question: line.slice(5).trim().split(". ")[1],
         options: [],
+        optionCode: [],
         answer: "",
         userAnswer: "",
       };
     } else if (line.startsWith("- [ ] ")) {
+      if (checkAnswerBlock) {
+        checkAnswerBlock = false;
+      } else {
+        checkAnswerBlock = true;
+      }
       checkCodeBlock = false;
       // 選項
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       currentQuestion.options.push(line.slice(6).trim());
     } else if (line.startsWith("- [x] ")) {
+      if (checkAnswerBlock) {
+        checkAnswerBlock = false;
+      } else {
+        checkAnswerBlock = true;
+      }
       // 正確答案
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
@@ -61,6 +78,18 @@ export const mdToQuestions = (target: string) => {
     } else if (checkCodeBlock) {
       if (line !== "") {
         code += `${line}\n`;
+      }
+    } else if (checkAnswerBlock) {
+      if (line === "" && answerCode === "") {
+        answerCode = "";
+      } else if (line === "" && answerCode !== "") {
+        checkAnswerBlock = false;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        currentQuestion.optionCode.push(answerCode);
+        answerCode = "";
+      } else {
+        answerCode += `${line}\n`;
       }
     }
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
