@@ -2018,42 +2018,6 @@ a:focus {
 
 [Reference](https://developer.mozilla.org/pt-BR/docs/Web/CSS/Pseudo-classes)
 
-#### Q128. What style rule should you use to display all input elements that have failed the validation test with a red font?
-
-- [ ] A
-
-```css
-input.valid[false] {
-  color: red;
-}
-```
-
-- [x] B
-
-```css
-input:invalid {
-  color: red;
-}
-```
-
-- [ ] C
-
-```css
-input.not(valid) {
-  color: red;
-}
-```
-
-- [ ] D
-
-```css
-input.invalid {
-  color: red;
-}
-```
-
-[Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/:invalid)
-
 #### Q129. What style rule should you apply to the img element to display the element in grayscale with no color?
 
 - [ ] A
