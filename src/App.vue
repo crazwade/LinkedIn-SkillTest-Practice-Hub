@@ -7,16 +7,28 @@
     @close="handleDialogClose"
   />
   <div
-    v-if="!startExam"
-    class="flex flex-col w-full justify-center items-center"
+    class="showup w-full mb-5 h-[200px] flex justify-center items-center"
+    :class="{ 'show-effect': isTitleVisible }"
   >
-    <div class="flex justify-center items-center">
-      <label class="font-bold text-2xl">主題:</label>
+    <div
+      class="text-[10vw] font-extrabold"
+      style="text-shadow: rgba(0, 0, 0, 0.4) 0.2em 0.2em 0.3em"
+    >
+      {{ themeTitle }}
+    </div>
+  </div>
+  <div
+    v-if="!startExam"
+    class="flex flex-col w-full justify-center items-center h-3/5 py-6 rounded-[5%] shadow-lg"
+  >
+    <div class="flex flex-col justify-center items-baseline mb-3">
+      <label class="font-bold text-2xl">主題</label>
       <el-select
         v-model="selectExam.title"
         class="m-2"
         placeholder="Select"
         size="large"
+        @change="newTheme"
       >
         <el-option
           v-for="item in examTitle"
@@ -26,8 +38,8 @@
         />
       </el-select>
     </div>
-    <div class="flex justify-center items-center">
-      <label class="font-bold text-2xl">題數:</label>
+    <div class="flex flex-col justify-center items-baseline mb-3">
+      <label class="font-bold text-2xl">題數</label>
       <el-select
         v-model="selectExam.total"
         class="m-2"
@@ -93,7 +105,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import ResultDialog from "./components/ResultDialog.vue";
 import { mdToQuestions } from "./mdToQuestions";
 
@@ -165,6 +177,7 @@ const checkAnswers = () => {
 };
 
 const restart = () => {
+  themeTitle.value = "Linkedin Skilltest";
   selectExam.value.title = "";
   selectExam.value.total = 10;
   dataContent.value.showAnswer = false;
@@ -201,6 +214,38 @@ const getExam = () => {
 
   startExam.value = true;
 };
+
+// 選擇主題的效果
+
+const themeTitle = ref("Linkedin Skilltest");
+
+const newTheme = () => {
+  if (selectExam.value.title === "") {
+    return;
+  }
+  const gettitle = examTitle.find(
+    (item) => item.value === selectExam.value.title,
+  );
+
+  if (gettitle === undefined) {
+    return;
+  }
+
+  themeTitle.value = gettitle.title;
+};
+
+const isTitleVisible = ref(true);
+
+// 間聽主題變化
+watch(
+  () => selectExam.value.title,
+  () => {
+    isTitleVisible.value = false;
+    setTimeout(() => {
+      isTitleVisible.value = true;
+    }, 300);
+  },
+);
 </script>
 
 <style scoped>
@@ -215,5 +260,25 @@ const getExam = () => {
 .wrong-answer {
   background-color: #f36f6f;
 }
+
+.showup {
+  /* 初始状态样式 */
+  opacity: 0;
+  transform: translateY(-100px);
+}
+
+.show-effect {
+  /* 有值时的样式 */
+  opacity: 1;
+  transform: translateY(0px);
+  transition:
+    opacity 0.5s,
+    transform 0.5s;
+}
+
+.shadow-lg {
+  box-shadow:
+    10px 30px 30px -1px rgba(0, 0, 0, 0.1),
+    0 2px 40px -1px rgba(0, 0, 0, 0.06);
+}
 </style>
-./test.js
