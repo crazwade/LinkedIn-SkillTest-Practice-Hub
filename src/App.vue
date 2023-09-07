@@ -55,7 +55,7 @@
       </h2>
       <pre
         v-if="item.code"
-        class="py-5 px-3 bg-gray-300 whitespace-pre-wrap mb-3"
+        class="py-5 px-3 bg-slate-800 text-gray-300 whitespace-pre-wrap mb-3"
         >{{ item.code }}</pre
       >
       <div
@@ -76,7 +76,14 @@
           }"
           @click="selectThis(index, option)"
         >
-          {{ option }}
+          <div v-if="item.optionCode[optionIndex]">
+            <div class="py-5 px-3 bg-gray-300 whitespace-pre-wrap my-3">
+              {{ item.optionCode[optionIndex] }}
+            </div>
+          </div>
+          <div v-else>
+            {{ option }}
+          </div>
         </label>
       </div>
     </el-card>
@@ -115,6 +122,7 @@ const dataContent = ref<{
   questions: {
     question: string;
     options: string[];
+    optionCode: string[];
     answer: string;
     userAnswer: string;
     code?: string;
