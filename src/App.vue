@@ -11,8 +11,11 @@
     :class="{ 'show-effect': isTitleVisible }"
   >
     <div
-      class="text-[10vw] font-extrabold"
-      style="text-shadow: rgba(0, 0, 0, 0.4) 0.2em 0.2em 0.3em"
+      class="font-extrabold"
+      style="
+        text-shadow: rgba(0, 0, 0, 0.4) 0.2em 0.2em 0.3em;
+        font-size: min(10vw, 70px);
+      "
     >
       {{ themeTitle }}
     </div>
