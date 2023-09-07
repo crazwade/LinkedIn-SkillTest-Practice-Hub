@@ -5,9 +5,9 @@ import CSS from "./exam/cssExam.md?raw";
 // import TEST from "./exam/test.md?raw";
 
 export const mdToQuestions = (target: string) => {
+  let lines;
   // 測試用
   // lines = TEST.split("\n");
-  let lines;
   switch (target) {
     case "git":
       lines = GIT.split("\n");
@@ -63,6 +63,7 @@ export const mdToQuestions = (target: string) => {
       } else {
         checkAnswerBlock = true;
       }
+      checkCodeBlock = false;
       // 正確答案
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
