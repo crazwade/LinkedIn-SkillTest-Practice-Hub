@@ -1,3 +1,22 @@
+#### Q1. Which image matches the flex layout defined in this style rule?
+
+```css
+.container {
+  display: flex;
+}
+
+.container div:last-child {
+  margin-left: auto;
+}
+```
+
+- [ ] ![A](images/Q1-A.jpg)
+- [x] ![B](images/Q1-B.jpg)
+- [ ] ![C](images/Q1-C.jpg)
+- [ ] ![D](images/Q1-D.jpg)
+
+[Sample](https://jsfiddle.net/mrvahid/zohd8k2n/)
+
 #### Q2. Variables declared with the let keyword have what type of scope?
 
 - [ ] function scope
@@ -437,6 +456,20 @@ console.log(currencies);
 - [ ] map()
 - [ ] forEach()
 - [x] filter()
+
+#### Q48. The image below has float: left applied. Text wraps the float on the right and bottom. How would you force the second paragraph to start underneath the float, leaving a gap after the preceding paragraph?
+
+![CSS clear](images/Q48.png?raw=true)
+
+- [ ] Apply `float: left` to the second paragraph.
+- [ ] Apply `clear: right` to the floated item.
+- [x] Apply `clear: left` to the second paragraph.
+- [ ] Apply `clear: left` to the floated item.
+
+[Source: W3Schools](https://www.w3schools.com/css/css_float_clear.asp)
+
+**clear: left;**
+`When we use the float property, and we want the next element below (not on right or left), we will have to use the clear property. When clearing floats, you should match the clear to the float: If an element is floated to the left, then you should clear to the left. Your floated element will continue to float, but the cleared element will appear below it on the web page.`
 
 #### Q49. You want to create striped table rows using CSS without adding a class to any element. Which CSS would correctly apply the background color to every odd row in your table?
 

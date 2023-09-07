@@ -37,6 +37,45 @@ div a
 - [ ] Use the "clearfix hack" on the floated element or the overflow property on the parent element.
 - [x] Use the "clearfix hack" on the parent element or use the overflow property with a value other than "visible."
 
+#### Q5. What element(s) do the following selectors match to?
+
+```css
+1) .nav {
+  ...;
+}
+2) nav {
+  ...;
+}
+3) #nav {
+  ...;
+}
+```
+
+- [ ] A
+
+```
+  1. An element with an ID of "nav"
+  2. A nav element
+  3. An element with a class of "nav"
+```
+
+- [ ] B `They all target the same nav element.`
+- [x] C
+
+```
+  1. An element with an class of "nav"
+  2. A nav element
+  3. An element with a id of "nav"
+```
+
+- [ ] D
+
+```
+  1. An element with an class of "nav"
+  2. A nav element
+  3. An div with a id of "nav"
+```
+
 #### Q6. When adding transparency styles, what is the difference between using the opacity property versus the background property with an `rgba()` value?
 
 - [ ] Opacity specifies the level of transparency of the child elements. Background with an `rgba()` value applies transparency to the background color only.
@@ -196,6 +235,42 @@ a {
 
 **Note:**an alternative to the question below.`
 
+#### Q17. When elements within a container overlap, the z-index property can be used to indicate how those items are stacked on top of each other. Which set of statements is true?
+
+- [x] A
+
+```
+  1. Larger z-index values appear on top elements with a lower z-index value.
+  2. Negative and positive number can be used.
+  3. z-index can be used only on positioned elements.
+```
+
+- [ ] B
+
+```
+  1. Smaller z-index values appear on top of elements with a larger z-index value.
+  2. Negative and positive numbers can be used.
+  3. z-index can be used with or without positioned elements.
+```
+
+- [ ] C
+
+```
+  1. Smaller z-index values appear on top of elements with a larger z-index value.
+  2. Negative and positive number can be used.
+  3. z-index must also be used with positioned elements.
+```
+
+- [ ] D
+
+```
+  1. Larger z-index values appear on top of elements with a lower z-index value.
+  2. Only positive number can be used.
+  3. z-index must also be used with positioned elements.
+```
+
+**Note:**an alternative to the question above.`
+
 #### Q18. What is the difference between the following line-height settings?
 
 ```css
@@ -231,6 +306,40 @@ section + p {
 - [ ] Both paragraphs will be blue.
 - [x] Paragraphs one will be red, paragraph two will be blue.
 - [ ] Both paragraphs will be red.
+
+#### Q20. What are three valid ways of adding CSS to an HTML page?
+
+- [ ] A
+
+```
+  1. External; CSS is written in a separate file.
+  2. Inline; CSS is added to the <head> of the HTML page.
+  3. Internal; CSS is included within the HTML tags.
+```
+
+- [ ] B
+
+```
+  1. External; CSS is written in a separate file and is linked within the <header> element of the HTML file.
+  2. Inline; CSS is added to the HTML tag.
+  3. Internal; CSS is included within the <header> element of the HTML file.
+```
+
+- [ ] C
+
+```
+  1. External; CSS is written in a separate file and is linked within the <head> element of the HTML file.
+  2. Internal; CSS is included within the <header> element of the HTML file.
+  3. Inline; CSS is added to the HTML tag.
+```
+
+- [x] D
+
+```
+  1. External; CSS is written in a separate file and is linked within the <head> element of the HTML file.
+  2. Inline; CSS is added to the HTML tag.
+  3. Internal; CSS is included within the <head> element of the HTML file.
+```
 
 #### Q21. Which of the following is true of the SVG image format? (_Alternative_: Which statement about the SVG image format is true?)
 
@@ -286,6 +395,46 @@ a:active {
 - [ ] p:first-letter { color: red; }
 - [ ] first-letter::p { color: red; }
 - [ ] first-letter:p { color: red; }
+
+#### Q28. In this example, what is the selector, property, and value?
+
+```css
+p {
+  color: #000000;
+}
+```
+
+- [ ] A
+
+```
+  "p" is the selector
+  "#000000" is the property
+  "color" is the value
+```
+
+- [x] B
+
+```
+  "p" is the selector
+  "color" is the property
+  "#000000" is the value
+```
+
+- [ ] C
+
+```
+  "color" is the selector
+  "#000000" is the property
+  "#p" is the value
+```
+
+- [ ] D
+
+```
+  "color" is the selector
+  "p" is the property
+  "#000000" is the value
+```
 
 #### Q29. What is the rem unit based on?
 
@@ -482,6 +631,42 @@ font-weight: 700;
 - [ ] light; normal
 - [ ] normal; bolder
 
+#### Q46. Using the :nth-child pseudo class, what would be the most efficient way to style every third item in a list, no matter how many items are present, starting with item 2?
+
+- [ ] A
+
+```css
+li:nth-child(3 + 2n) {
+  margin: 0 5 px;
+}
+```
+
+- [x] B
+
+```css
+li:nth-child(3n + 2) {
+  margin: 0 5 px;
+}
+```
+
+- [ ] C
+
+```css
+li:nth-child(2),
+li:nth-child(5),
+li:nth-child(8) {
+  margin: 0 5 px;
+}
+```
+
+- [ ] D
+
+```css
+li:nth-child(2n + 3) {
+  margin: 0 5 px;
+}
+```
+
 #### Q47. Which selector would select only internal links within the current page?
 
 - [ ] `a[href="#"] {...}`
@@ -656,6 +841,52 @@ padding: 10px 0; /* declaration C */
 - [ ] Declaration B is invalid.
 - [ ] Declaration C is invalid.
 - [x] All declarations are valid.
+
+#### Q66. Which CSS will cause your links to have a solid blue background that changes to semitransparent on hover?
+
+- [x] A
+
+```css
+a:link {
+  background: #0000ff;
+}
+a:hover {
+  background: rgba(0, 0, 255, 0.5);
+}
+```
+
+- [ ] B
+
+```css
+a {
+  color: blue;
+}
+a:hover {
+  background: white;
+}
+```
+
+- [ ] C
+
+```css
+a:link {
+  background: blue;
+}
+a:hover {
+  color: rgba(0, 0, 255, 0.5);
+}
+```
+
+- [ ] D
+
+```css
+a:hover {
+  background: rgba(blue, 50%);
+}
+a:link {
+  background: rgba(blue);
+}
+```
 
 #### Q67. Which CSS rule takes precedence over the others listed?
 
@@ -858,6 +1089,82 @@ D. border-top-radius: 10px;
 - [ ] B and C
 - [x] A and B
 
+#### Q87. Review the HTML example below. Then choose the list of selectors that select the \<p>, from lowest to highest specificity.
+
+```html
+<section>
+  <p class="example">...</p>
+</section>
+```
+
+- [ ] A
+
+```css
+1. section \* {
+  ...;
+}
+2. [class*='example'] {
+  ...;
+}
+3. p.example {
+  ...;
+}
+4. section p {
+  ...;
+}
+```
+
+- [ ] B
+
+```css
+1. p {
+  ...;
+}
+2. p.example {
+  ...;
+}
+3. section p {
+  ...;
+}
+4. [class*='example'] {
+  ...;
+}
+```
+
+- [ ] C
+
+```css
+1. p.example {
+  ...;
+}
+2. section p {
+  ...;
+}
+3. [class*='example'] {
+  ...;
+}
+4. section \* {
+  ...;
+}
+```
+
+- [x] D
+
+```css
+1. p {
+  ...;
+}
+2. section p {
+  ...;
+}
+3. [class*='example'] {
+  ...;
+}
+4. p.example {
+  ...;
+}
+```
+
 #### Q88. Which property is used to create a drop shadow effect on an HTML element?
 
 - [ ] element-shadow
@@ -958,6 +1265,44 @@ article > p {
 - [x] Paragraph 1 will be green. Paragraph 2 will be blue.
 - [ ] Both paragraphs will be blue.
 
+#### Q95. Review the declaration of border style shown below. What is the corresponding longhand syntax?
+
+```css
+border: 1px solid red;
+```
+
+- [ ] A
+
+```css
+border-size: 1px;
+border-style: solid;
+border-color: red;
+```
+
+- [ ] B
+
+```css
+border-size: 1px;
+border-type: solid;
+border-color: red;
+```
+
+- [x] C
+
+```css
+border-width: 1px;
+border-style: solid;
+border-color: red;
+```
+
+- [ ] D
+
+```css
+border-width: 1px;
+border-line: solid;
+border-color: red;
+```
+
 #### Q96. Pseudo-classes are used to `_`.
 
 - [x] style the state of the selected element
@@ -991,6 +1336,45 @@ section {
 - [x] `header {...}`
 - [ ] `#header {...}`
 - [ ] `header > h1 {...}`
+
+#### Q99. What is the correct order for listing different link states in a website so those states display correctly on the page?
+
+- [ ] A
+
+```css
+  a
+  a:hover
+```
+
+- [ ] B
+
+```css
+  :link
+  :visited
+  :hover
+  :active
+  :focus
+```
+
+- [ ] C
+
+```css
+  :active
+  :focus
+  :hover
+  :link
+  :visited
+```
+
+- [x] D
+
+```css
+  :link
+  :visited
+  :focus
+  :hover
+  :active
+```
 
 #### Q100. Which selector is used to select the paragraph element that is a direct descendent of section?
 
@@ -1121,12 +1505,98 @@ p:first-of-type:first-letter {
 - [ ] margin, padding, font size, line height, border
 - [ ] font size, line height, letter spacing, width, height
 
+#### Q107. Which choice will not set all links that include domain.com to pink?
+
+- [ ] A
+
+```css
+a[href$='domain.com'] {
+  color: pink;
+}
+```
+
+- [x] B
+
+```css
+a[href='*domain.com'] {
+  color: pink;
+}
+```
+
+- [ ] C
+
+```css
+a[href*='domain.com'] {
+  color: rgb(255, 155, 155);
+}
+```
+
+- [ ] D
+
+```css
+a[href*='domain.com'] {
+  color: pink;
+}
+```
+
+[Reference](https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/)
+
 #### Q108. Which property and value pair could be used to apply a linear gradient effect?
 
 - [x] `css background: linear-gradient(#648880, #293f50);`
 - [ ] `css background-image: linear(#648880, #293f50);`
 - [ ] `css background: gradient(linear, #648880, #293f50);`
 - [ ] `css background-color: linear-gradient(#648880, #293f50);`
+
+#### Q109. You want to add a background circle behind an icon. Which style declaration is correct?
+
+- [ ] A
+
+```css
+.glyphicon-bgcircle {
+  circle-radius: 50%;
+  margins: 50px;
+  background-color: #fdadc6;
+  color: rgba(255, 255, 255, 1);
+  font-size: 24px;
+}
+```
+
+- [ ] B
+
+```css
+glyphicon-bgcircle {
+  border-circle: 50%;
+  padding: 50px;
+  background-color: #fdadc6;
+  color: rgba(255, 255, 255, 1);
+  font-size: 24px;
+}
+```
+
+- [x] C
+
+```css
+.glyphicon-bgcircle {
+  border-radius: 50%;
+  padding: 50px;
+  background-color: #fdadc6;
+  color: rgba(255, 255, 255, 1);
+  font-size: 24px;
+}
+```
+
+- [ ] D
+
+```css
+.glyphicon-bgcircle {
+  radius-rounded: 50%;
+  margins: auto;
+  background-color: #fdadc6;
+  color: rgba(255, 255, 255, 1);
+  font-size: 24px;
+}
+```
 
 #### Q110. Which items are valid values for the font-size property?
 
@@ -1150,6 +1620,72 @@ D. font-size: 20px
 - [ ] Floating the blue box on the left also moves it down.
 - [ ] Floating the blue box actually shifts it to the right and down.
 - [x] Floating the blue box took it out of document flow and the container is sized only to the sample text.
+
+#### Q112. Given this code, which CSS declaration of .overlay will span the entire width and height of its container?
+
+```css
+<style>
+.container {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+}
+</style>
+<div class="container"><div class="overlay"></div></div>
+```
+
+- [ ] A
+
+```css
+.overlay {
+  position: static;
+  top: 200px;
+  bottom: 200px;
+  right: 200px;
+  left: 200px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+```
+
+- [ ] B
+
+```css
+.overlay {
+  position: absolute;
+  top: 200px;
+  bottom: 200px;
+  right: 200px;
+  left: 200px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+```
+
+- [ ] C
+
+```css
+.overlay {
+  position: static;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+```
+
+- [x] D
+
+```css
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+```
 
 #### Q113. Which missing line of code would place the text on top of the image?
 
@@ -1263,12 +1799,99 @@ background-tile: none;
 - [ ] `background-image: wood.png;`
 - [ ] `image: wood.png`
 
+#### Q119. What style rule would set the font color of only paragraph two to blue?
+
+```js
+<section><p>paragraph one</p></section><p>paragraph two</p>
+```
+
+- [ ] A
+
+```css
+section > p {
+  color: blue;
+}
+```
+
+- [ ] B
+
+```css
+p {
+  color: blue;
+}
+```
+
+- [x] C
+
+```css
+section + p {
+  color: blue;
+}
+```
+
+- [ ] D
+
+```css
+p + section {
+  color: blue;
+}
+```
+
+[Reference](https://www.w3schools.com/cssref/sel_element_pluss.asp)
+
 #### Q120. You want to move an element up 100px. Which CSS property would you use?
 
 - [ ] `transform: translateX(-100px)`
 - [x] `transform: translateY(-100px)`
 - [ ] `transform: translateY(100px)`
 - [ ] `transform: translateX(100px)`
+
+#### Q121. Which style will horizontally center the inner &lt;div&gt; within the outer &lt;div&gt;?
+
+```js
+<div id="outer">
+  <div id="inner">Center Me!</div>
+</div>
+```
+
+- [ ] A
+
+```css
+#inner {
+  width: 50%;
+}
+
+#outer {
+  width: 100%;
+}
+```
+
+- [ ] B
+
+```css
+#inner {
+  left: 0;
+  right: 0;
+  position: center;
+}
+```
+
+- [ ] C
+
+```css
+#inner {
+  text-align: center;
+}
+```
+
+- [x] D
+
+```css
+#inner {
+  width: 50%;
+  margin: 0 auto;
+}
+```
 
 #### Q122. Which corner will the puppy be in when these CSS rules are applied?
 
@@ -1395,6 +2018,78 @@ a:focus {
 
 [Reference](https://developer.mozilla.org/pt-BR/docs/Web/CSS/Pseudo-classes)
 
+#### Q128. What style rule should you use to display all input elements that have failed the validation test with a red font?
+
+- [ ] A
+
+```css
+input.valid[false] {
+  color: red;
+}
+```
+
+- [x] B
+
+```css
+input:invalid {
+  color: red;
+}
+```
+
+- [ ] C
+
+```css
+input.not(valid) {
+  color: red;
+}
+```
+
+- [ ] D
+
+```css
+input.invalid {
+  color: red;
+}
+```
+
+[Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/:invalid)
+
+#### Q129. What style rule should you apply to the img element to display the element in grayscale with no color?
+
+- [ ] A
+
+```css
+img {
+  transform: grayscale(1);
+}
+```
+
+- [ ] B
+
+```css
+img {
+  filter: grayscale(0);
+}
+```
+
+- [ ] C
+
+```css
+img {
+  transform: grayscale(0);
+}
+```
+
+- [x] D
+
+```css
+img {
+  filter: grayscale(1);
+}
+```
+
+[Reference](https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_filter_grayscale)
+
 #### Q130. Why might you create a reset style sheet?
 
 - [ ] to reduce page size by removing browser styles from the page rendering.
@@ -1412,6 +2107,48 @@ a:focus {
 - [ ] padding: 10px 0px 10px 0px;
 
 [Reference](https://www.w3schools.com/css/css_padding.asp)
+
+#### Q132. How would you absolutely position an element of the logo class inside of a relatively positioned container?
+
+- [ ] A
+
+```css
+.logo {
+  position: absolute;
+  padding-left: 100px;
+  padding-top: 150px;
+}
+```
+
+- [ ] B
+
+```css
+.logo {
+  position: absolute;
+  left: 100px;
+  top: 150px;
+}
+```
+
+- [ ] C
+
+```css
+.logo {
+  position: absolute;
+  left-padding: 100px;
+  top-padding: 150px;
+}
+```
+
+- [x] D
+
+```css
+.logo {
+  position: absolute;
+  margin-left: 100px;
+  margin-top: 150px;
+}
+```
 
 #### Q133. How would the `<div>` with the class .child be positioned within its container?
 
@@ -1446,6 +2183,110 @@ a:focus {
 - [ ] one-sided, so that there is only one transition and it goes from the end state to the initial state.
 
 [Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions)
+
+#### Q135. Which style rule will extend the header element across an entire grid row from the first column through the last column?
+
+- [ ] A
+
+```css
+header {
+  grid-column: 1 / auto;
+}
+```
+
+- [x] B
+
+```css
+header {
+  grid-column: 1/-1;
+}
+```
+
+- [ ] C
+
+```css
+header {
+  grid-column: -1/1;
+}
+```
+
+- [ ] D
+
+```css
+header {
+  grid-column: 1/100%;
+}
+```
+
+[Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column)
+
+#### Q136. To center the content of a grid cell horizontally and vertically within the cell, which style rule should you apply?
+
+- [ ] A
+
+```css
+align-items: start;
+justify-items: end;
+```
+
+- [x] B
+
+```css
+align--items: center;
+justify-items: center;
+```
+
+- [ ] C
+
+```css
+align-items: middle;
+justify-items: middle;
+```
+
+- [ ] D
+
+```css
+align-items: stretch;
+justify-items: stretch;
+```
+
+[Reference for align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) [Reference for justify-items](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items)
+
+#### Q137. What style rule should you use to display all input elements that have failed the validation test with a red font?
+
+- [ ] A
+
+```css
+input.valid[false] {
+  color: red;
+}
+```
+
+- [x] B
+
+```css
+input:invalid {
+  color: red;
+}
+```
+
+- [ ] C
+
+```css
+input.not(valid) {
+  color: red;
+}
+```
+
+- [ ] D
+
+```css
+input.invalid {
+  color: red;
+}
+```
+
+[Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/:invalid)
 
 #### Q139. To insert an external style sheet file into another style sheet file, which rule should you use?
 
