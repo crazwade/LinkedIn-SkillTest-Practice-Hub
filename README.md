@@ -1,18 +1,56 @@
-# Vue 3 + TypeScript + Vite
+# LinkedIn SkillTest Practice Hub
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+LinkedIn SkillTest Practice Hub 是一個用於收集 LinkedIn 技能評估問題和答案的平台。它允許使用者在首頁上選擇不同的主題和題數，並根據他們的選擇隨機從題庫中選取題目進行考試練習。用戶可以回答問題，然後點擊 "顯示結果" 按鈕來查看他們的正確率和正確答案。如果他們想再次練習，可以點擊 "重來" 回到首頁進行新的題目選擇。
 
-## Recommended IDE Setup
+## 專案資訊
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- **專案名稱**: linkedin-skilltest-practice-hub
+- **版本**: 1.1.3
+- **題庫**: CSS, HTML, Git, JavaScript and Front-end Development
 
-## Type Support For `.vue` Imports in TS
+## 技術
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+LinkedIn SkillTest Practice Hub 使用以下主要技術：
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+- **Vue.js**: 前端框架。
+- **Vite**: 快速的前端開發工具。
+- **Element Plus**: 提供UI元件和樣式。
+- **TypeScript**: 靜態類型檢查。
+- **Tailwind CSS**: 提供設計風格和佈局。
+- **ESLint 和 Prettier**: 代碼質量控制工具。
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+## 安裝和使用
+
+要運行 LinkedIn SkillTest Practice Hub，請按照以下步驟進行安裝：
+
+#### 1. Clone Project
+```bash
+git clone https://github.com/crazwade/linkedin-skilltest-practice-hub.git
+```
+
+#### 2. Into Project
+```bash
+cd linkedin-skilltest-practice-hub
+```
+
+#### 3. install Dependencies
+```bash
+npm install
+```
+
+#### 4. Start Development Server
+```bash
+npm run dev
+```
+
+在瀏覽器中打開 http://localhost:3000 即可在本地端使用 LinkedIn SkillTest Practice Hub 以及測試或修改。
+
+## 命令
+
+- npm run dev: 啟動開發伺服器。
+- npm run build: 編譯專案並生成部署用的文件。
+- npm run preview: 預覽生成的部署文件。
+
+## 貢獻
+
+我們歡迎任何形式的貢獻！如果您想要改進 LinkedIn SkillTest Practice Hub，請提交問題、建議或代碼貢獻。
