@@ -1,5 +1,7 @@
 # LinkedIn SkillTest Practice Hub
 
+[![Playground](https://img.shields.io/badge/resources-playground-orange)](https://github.com/Ebazhanov/linkedin-skill-assessments-quizzes/tree/main)
+
 LinkedIn SkillTest Practice Hub 是一個用於收集 LinkedIn 技能評估問題和答案的平台。它允許使用者在首頁上選擇不同的主題和題數，並根據他們的選擇隨機從題庫中選取題目進行考試練習。用戶可以回答問題，然後點擊 "顯示結果" 按鈕來查看他們的正確率和正確答案。如果他們想再次練習，可以點擊 "重來" 回到首頁進行新的題目選擇。
 
 ## 專案資訊
