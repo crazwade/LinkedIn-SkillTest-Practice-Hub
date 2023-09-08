@@ -208,10 +208,12 @@ const selectThis = (questionsIndex: number, answer: string) => {
   dataContent.value.questions[questionsIndex].userAnswer = answer;
 };
 
-const getExam = () => {
+const getExam = async () => {
   if (selectExam.value.title === "") return;
 
-  const getQuestion = [...mdToQuestions(selectExam.value.title)];
+  const questionFromMD = await mdToQuestions(selectExam.value.title);
+
+  const getQuestion = [...questionFromMD];
   // 隨機
   const randomSelection = [];
   // 随机选择10个元素并打乱顺序

@@ -1,42 +1,12 @@
-import GIT from "../exam/gitExam.md?raw";
-import FRD from "../exam/fedExam.md?raw";
-import CSS from "../exam/cssExam.md?raw";
-import HTML from "../exam/htmlExam.md?raw";
-import JS from "../exam/jsExam.md?raw";
-import PHP from "../exam/phpExam.md?raw";
-import MYSQL from "../exam/phpExam.md?raw";
 // 測試用
 // import TEST from "../exam/test.md?raw";
 
-export const mdToQuestions = (target: string) => {
-  let lines;
+export const mdToQuestions = async (target: string) => {
+  // 動態引入 MD 檔案
+  const mdFile = await import(`../exam/${target}Exam.md?raw`);
   // 測試用
   // lines = TEST.split("\n");
-  switch (target) {
-    case "git":
-      lines = GIT.split("\n");
-      break;
-    case "frd":
-      lines = FRD.split("\n");
-      break;
-    case "css":
-      lines = CSS.split("\n");
-      break;
-    case "html":
-      lines = HTML.split("\n");
-      break;
-    case "js":
-      lines = JS.split("\n");
-      break;
-    case "php":
-      lines = PHP.split("\n");
-      break;
-    case "mysql":
-      lines = MYSQL.split("\n");
-      break;
-    default:
-      console.log("error");
-  }
+  const lines = mdFile.default.split("\n");
   const questions = [];
   let currentQuestion;
   // 程式法範例區
