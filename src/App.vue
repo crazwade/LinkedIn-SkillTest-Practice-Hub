@@ -111,41 +111,7 @@
 import { ref, watch } from "vue";
 import ResultDialog from "./components/ResultDialog.vue";
 import { mdToQuestions } from "./common/mdToQuestions";
-
-const examTitle = [
-  {
-    title: "Git",
-    value: "git",
-  },
-  {
-    title: "CSS",
-    value: "css",
-  },
-  {
-    title: "Front-end Development",
-    value: "frd",
-  },
-  {
-    title: "HTML",
-    value: "html",
-  },
-  {
-    title: "JavaScript",
-    value: "js",
-  },
-  {
-    title: "PHP",
-    value: "php",
-  },
-  {
-    title: "MySQL",
-    value: "mysql",
-  },
-  {
-    title: "RESTful API",
-    value: "restapi",
-  },
-];
+import { examTitle } from "./data/examTitles";
 
 const selectExam = ref({
   title: "",
@@ -218,16 +184,15 @@ const getExam = async () => {
   const questionFromMD = await mdToQuestions(selectExam.value.title);
 
   const getQuestion = [...questionFromMD];
-  // 隨機
+  // 暫存 陣列
   const randomSelection = [];
-  // 随机选择10个元素并打乱顺序
+  // 隨機取10個並打亂順序
   for (let i = 0; i < selectExam.value.total; i++) {
     const randomIndex = Math.floor(Math.random() * getQuestion.length);
     const selectedElement = getQuestion.splice(randomIndex, 1)[0];
     randomSelection.push(selectedElement);
   }
   dataContent.value.questions = randomSelection;
-  // dataContent.value.questions = getQuestion;
 
   startExam.value = true;
 };
@@ -299,4 +264,4 @@ watch(
     0 2px 40px -1px rgba(0, 0, 0, 0.06);
 }
 </style>
-./common/mdToQuestions
+./common/mdToQuestions ./data/examTitles
