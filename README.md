@@ -7,7 +7,7 @@ LinkedIn SkillTest Practice Hub 是一個用於收集 LinkedIn 技能評估問�
 ## 專案資訊
 
 - **專案名稱**: linkedin-skilltest-practice-hub
-- **版本**: 1.1.7
+- **版本**: v1.1.8
 - **題庫**: RESTFul API, PHP, MySQL, CSS, HTML, Git, JavaScript and Front-end Development
 
 ## 技術
