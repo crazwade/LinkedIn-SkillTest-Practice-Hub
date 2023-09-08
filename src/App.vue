@@ -141,6 +141,10 @@ const examTitle = [
     title: "MySQL",
     value: "mysql",
   },
+  {
+    title: "RESTful API",
+    value: "restapi",
+  },
 ];
 
 const selectExam = ref({
