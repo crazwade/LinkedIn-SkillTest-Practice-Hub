@@ -110,7 +110,7 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import ResultDialog from "./components/ResultDialog.vue";
-import { mdToQuestions } from "./mdToQuestions";
+import { mdToQuestions } from "./common/mdToQuestions";
 
 const examTitle = [
   {
@@ -293,3 +293,4 @@ watch(
     0 2px 40px -1px rgba(0, 0, 0, 0.06);
 }
 </style>
+./common/mdToQuestions

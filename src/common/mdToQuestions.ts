@@ -1,12 +1,12 @@
-import GIT from "./exam/gitExam.md?raw";
-import FRD from "./exam/fedExam.md?raw";
-import CSS from "./exam/cssExam.md?raw";
-import HTML from "./exam/htmlExam.md?raw";
-import JS from "./exam/jsExam.md?raw";
-import PHP from "./exam/phpExam.md?raw";
-import MYSQL from "./exam/phpExam.md?raw";
+import GIT from "../exam/gitExam.md?raw";
+import FRD from "../exam/fedExam.md?raw";
+import CSS from "../exam/cssExam.md?raw";
+import HTML from "../exam/htmlExam.md?raw";
+import JS from "../exam/jsExam.md?raw";
+import PHP from "../exam/phpExam.md?raw";
+import MYSQL from "../exam/phpExam.md?raw";
 // 測試用
-// import TEST from "./exam/test.md?raw";
+// import TEST from "../exam/test.md?raw";
 
 export const mdToQuestions = (target: string) => {
   let lines;
