@@ -70,7 +70,7 @@
       </h2>
       <pre
         v-if="item.code"
-        class="py-5 px-3 bg-slate-800 text-gray-300 whitespace-pre-wrap mb-3"
+        class="py-5 px-3 bg-slate-800 text-gray-300 whitespace-pre-wrap mb-3 overflow-auto"
         >{{ item.code }}</pre
       >
       <div
@@ -91,12 +91,12 @@
           }"
           @click="selectThis(index, option)"
         >
-          <div v-if="item.optionCode[optionIndex]">
+          <div v-if="item.optionCode[optionIndex]" class="overflow-auto">
             <div class="py-5 px-3 bg-gray-300 whitespace-pre-wrap my-3">
               {{ item.optionCode[optionIndex] }}
             </div>
           </div>
-          <div v-else>
+          <div v-else class="overflow-auto">
             {{ option }}
           </div>
         </label>
