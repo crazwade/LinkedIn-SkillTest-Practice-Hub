@@ -7,7 +7,7 @@
     @close="handleDialogClose"
   />
   <div
-    class="showup w-full mb-5 h-[200px] flex justify-center items-center"
+    class="showup w-full mb-5 h-[200px] flex justify-center items-center text-slate-950"
     :class="{ 'show-effect': isTitleVisible }"
   >
     <div
@@ -22,7 +22,7 @@
   </div>
   <div
     v-if="!startExam"
-    class="flex flex-col w-full justify-center items-center h-3/5 py-6 rounded-[5%] shadow-lg"
+    class="flex flex-col w-full justify-center items-center h-3/5 py-6 rounded-[5%] shadow-lg bg-white"
   >
     <div class="flex flex-col justify-center items-baseline mb-3">
       <label class="font-bold text-2xl">主題</label>
