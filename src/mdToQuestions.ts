@@ -3,6 +3,8 @@ import FRD from "./exam/fedExam.md?raw";
 import CSS from "./exam/cssExam.md?raw";
 import HTML from "./exam/htmlExam.md?raw";
 import JS from "./exam/jsExam.md?raw";
+import PHP from "./exam/phpExam.md?raw";
+import MYSQL from "./exam/phpExam.md?raw";
 // 測試用
 // import TEST from "./exam/test.md?raw";
 
@@ -25,6 +27,12 @@ export const mdToQuestions = (target: string) => {
       break;
     case "js":
       lines = JS.split("\n");
+      break;
+    case "php":
+      lines = PHP.split("\n");
+      break;
+    case "mysql":
+      lines = MYSQL.split("\n");
       break;
     default:
       console.log("error");

@@ -133,6 +133,14 @@ const examTitle = [
     title: "JavaScript",
     value: "js",
   },
+  {
+    title: "PHP",
+    value: "php",
+  },
+  {
+    title: "MySQL",
+    value: "mysql",
+  },
 ];
 
 const selectExam = ref({
