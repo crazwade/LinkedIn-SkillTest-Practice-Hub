@@ -168,7 +168,7 @@ if ($email === false) {
 
 #### Q19. The PHP function array_reduce() takes a callback function that accepts a value carried over each iteration and the current item in the array, and reduces an array to a single value. Which code sample will sum and output the values in the provided array?
 
-- [ ] &shy;
+- [ ] A
 
 ```php
   1 <?php
@@ -178,7 +178,7 @@ if ($email === false) {
   5?>
 ```
 
-- [ ] &shy;
+- [ ] B
 
 ```php
   1 <?php
@@ -188,7 +188,7 @@ if ($email === false) {
   5?>
 ```
 
-- [ ] &shy;
+- [ ] C
 
 ```php
   1 <?php
@@ -198,7 +198,7 @@ if ($email === false) {
   5?>
 ```
 
-- [x] &shy;
+- [x] D
 
 ```php
   1 <?php
@@ -210,7 +210,7 @@ if ($email === false) {
 
 #### Q20. Which PHP script uses a constructor to display the string "Winter is almost over!"?
 
-- [x] &shy;
+- [x] A
 
 ```php
   1 class MyClass {
@@ -222,7 +222,7 @@ if ($email === false) {
   7 $userclass = new MyClass;
 ```
 
-- [ ] &shy;
+- [ ] B
 
 ```php
   1 class MyClass {
@@ -234,7 +234,7 @@ if ($email === false) {
   7 $userclass = new MyClass;
 ```
 
-- [ ] &shy;
+- [ ] C
 
 ```php
   1 class MyClass {
@@ -246,7 +246,7 @@ if ($email === false) {
   7 $userclass = new MyClass;
 ```
 
-- [ ] &shy;
+- [ ] D
 
 ```php
   1 class MyClass {
@@ -322,7 +322,7 @@ function process(...$vals) {
 
 #### Q29. Which is the way to create an array of "seasons"?
 
-- [ ] &shy;
+- [ ] A
 
 ```php
 seasons=array(
@@ -457,7 +457,7 @@ echo "No, mail is not set";
 
 #### Q44. Which code snippet demonstrates encapsulation?
 
-- [ ] &shy;
+- [ ] A
 
 ```php
   class Cow extends Animal {
@@ -465,7 +465,7 @@ echo "No, mail is not set";
   }
 ```
 
-- [ ] &shy;
+- [ ] B
 
 ```php
   class Cow {
@@ -475,7 +475,7 @@ echo "No, mail is not set";
   $daisy->milk = "creamy";
 ```
 
-- [ ] &shy;
+- [ ] C
 
 ```php
   class Cow {
@@ -486,7 +486,7 @@ echo "No, mail is not set";
   }
 ```
 
-- [x] &shy;
+- [x] D
 
 ```php
   class Cow {
@@ -519,28 +519,28 @@ echo "No, mail is not set";
 </books>
 ```
 
-- [ ] &shy;
+- [ ] A
 
 ```php
   $books = simplexml_load_string('books.xml');
   echo $books->book[0]->categories->category[1];
 ```
 
-- [x] &shy;
+- [x] B
 
 ```php
   $books = simplexml_load_file('books.xml');
   echo $books->book[0]->categories->category[1];
 ```
 
-- [ ] &shy;
+- [ ] C
 
 ```php
   $books = SimpleXMLElement('books.xml');
   echo $books->book[0]->categories->category[1];
 ```
 
-- [ ] &shy;
+- [ ] D
 
 ```php
   $books = SimpleXML('books.xml');
@@ -605,28 +605,28 @@ isset($_POST['submit'])
 
 #### Q52. What are the recommended settings in the PHP configuration file, php.ini, for a testing environment?
 
-- [ ] &shy;
+- [ ] A
 
 ```php
   report_errors = E_ALL
   display_errors = On
 ```
 
-- [x] &shy;
+- [x] B
 
 ```php
   error_reporting = E_ALL
   display_errors = On
 ```
 
-- [ ] &shy;
+- [ ] C
 
 ```php
   error_reporting = E_ALL & ~E_NOTICE
   display_errors = Off
 ```
 
-- [ ] &shy;
+- [ ] D
 
 ```php
   error_reporting = E_ALL & ~E_NOTICE
@@ -708,7 +708,7 @@ Dog
 Dog
 ```
 
-- [ ] :
+- [ ] A
 
 ```php
   $name = "Cat";
@@ -718,7 +718,7 @@ Dog
   echo $Dog;
 ```
 
-- [ ] :
+- [ ] B
 
 ```php
   $name = "Cat";
@@ -728,7 +728,7 @@ Dog
   echo $Dog;
 ```
 
-- [x] :
+- [x] C
 
 ```php
   $name = "Cat";
@@ -738,7 +738,7 @@ Dog
   echo $Cat;
 ```
 
-- [ ] :
+- [ ] D
 
 ```php
   $name = "Cat";
@@ -757,7 +757,7 @@ Dog
 
 #### Q61. Which script might be used to continue a user's search for music, across different webpages?
 
-- [ ] :
+- [ ] A
 
 ```php
   <?php
@@ -766,7 +766,7 @@ Dog
   ?>
 ```
 
-- [ ] :
+- [ ] B
 
 ```php
   <?php
@@ -775,7 +775,7 @@ Dog
   ?>
 ```
 
-- [ ] :
+- [ ] C
 
 ```php
   <?php
@@ -784,7 +784,7 @@ Dog
   ?>
 ```
 
-- [x] :
+- [x] D
 
 ```php
   <?php
@@ -795,7 +795,7 @@ Dog
 
 #### Q62. Which PHP script finds the earliest and latest dates from an array?
 
-- [x] :
+- [x] A
 
 ```php
   <?php
@@ -805,7 +805,7 @@ Dog
   ?>
 ```
 
-- [ ] :
+- [ ] B
 
 ```php
   <?php
@@ -815,7 +815,7 @@ Dog
   ?>
 ```
 
-- [ ] :
+- [ ] C
 
 ```php
   <?php
@@ -825,7 +825,7 @@ Dog
   ?>
 ```
 
-- [ ] :
+- [ ] D
 
 ```php
   <?php
@@ -846,7 +846,7 @@ for (;;) {
 }
 ```
 
-- [x] :
+- [x] A
 
 ```
   kilometers = 0.6214 miles.
@@ -856,7 +856,7 @@ for (;;) {
   kilometers = 3.107 miles.
 ```
 
-- [ ] :
+- [ ] B
 
 ```
   kilometers = 0.6214 miles.
@@ -867,7 +867,7 @@ for (;;) {
   kilometers = 3.7284 miles.
 ```
 
-- [ ] :
+- [ ] C
 
 ```
   kilometers = 1.2428 miles.
@@ -1153,7 +1153,7 @@ if( isset($user_info['url']) ) {
 
 #### Q92. A form to subscrive to a newsletter is submitted using the POST method. The form has only one field: an input text field named "email". How would you check if the field is empty and, if it is, print "The email cannot be empty"?
 
-- [x] :
+- [x] A
 
 ```php
 if(empty($_POST['email'])) {
@@ -1161,7 +1161,7 @@ if(empty($_POST['email'])) {
 }
 ```
 
-- [ ] :
+- [ ] B
 
 ```php
 if(empty($_GET['email'])) {
@@ -1169,7 +1169,7 @@ if(empty($_GET['email'])) {
 }
 ```
 
-- [ ] :
+- [ ] C
 
 ```php
 if(empty($_POST('email'))) {
@@ -1177,7 +1177,7 @@ if(empty($_POST('email'))) {
 }
 ```
 
-- [ ] :
+- [ ] D
 
 ```php
 if(isset($email)) {
@@ -1197,13 +1197,13 @@ if(isset($email)) {
 
 #### Q94. Which script properly validates the IP address given?
 
-- [ ] :
+- [ ] A
 
 ```php
 $valid = ip2long($ip) !== false;
 ```
 
-- [x] :
+- [x] B
 
 ```php
 $ip_address = "164.12.2540.1";
@@ -1214,7 +1214,7 @@ if(filter_var($ip_address, FILTER_VALIDATE_IP)){
 }
 ```
 
-- [ ] :
+- [ ] C
 
 ```php
 $ip_address = "164.12.2540.1";
@@ -1225,7 +1225,7 @@ if(validate_ip($ip_address)){
 }
 ```
 
-- [ ] :
+- [ ] D
 
 ```php
 $ip_address = "164.12.2540.1"
@@ -1275,7 +1275,7 @@ $array = array(
 'fruit5' => 'apple');
 ```
 
-- [x] :
+- [x] A
 
 ```php
 while ($fruit_name = current($array)) {
@@ -1286,7 +1286,7 @@ while ($fruit_name = current($array)) {
 }
 ```
 
-- [ ] :
+- [ ] B
 
 ```php
 while ($fruit_name = current($array)) {
@@ -1297,7 +1297,7 @@ while ($fruit_name = current($array)) {
 }
 ```
 
-- [ ] :
+- [ ] C
 
 ```php
 while ($fruit_name = current($array)) {
@@ -1308,7 +1308,7 @@ while ($fruit_name = current($array)) {
 }
 ```
 
-- [ ] :
+- [ ] D
 
 ```php
 while ($fruit_name = current($array)) {
@@ -1345,44 +1345,6 @@ echo $smurf->name;
 - [x] Smurfette
 - [ ] Papa Smurf
 
-#### Q99. You have an online form with a file input field called "image" for uploading files. Assuming the path to the upload directory is $path, which code should you use to make sure the file is uploaded from your form to the correct location?
-
-- [ ] :
-
-```php
-1 if ($_FILES['image'][error'] == 0) {
-2       move_uploaded_file($_FILES)['image']['temp_name'],
-3           $path . $_FILES['image']['name']);
-4  )
-```
-
-- [maybe] :
-
-```php
-1 if ($_FILES['image'][error'] === false) {
-2       move_uploaded_file($_FILES)['image']['temp_name'],
-3           $path . $_FILES['image']['name']);
-4  )
-```
-
-- [ ] :
-
-```php
-1 if ($_FILES['image'][error'] == 0) {
-2       copy($_FILES)['image']['temp_name'],
-3           $path . $_FILES['image']['name']);
-4  )
-```
-
-- [ ] :
-
-```php
-1 if ($_FILES['image'][error'] === false) {
-2       upload_file($_FILES)['image']['temp_name'],
-3           $path . $_FILES['image']['name']);
-4  )
-```
-
 #### Q100. Which super global variable holds information about headers, paths, and script locations?
 
 - [ ] `$_GET`
@@ -1392,7 +1354,7 @@ echo $smurf->name;
 
 #### Q101. Using a for loop, how would you write PHP code to count backward from 10 to 1, in that order?
 
-- [ ] &shy;
+- [ ] A
 
 ```php
 <?
@@ -1402,7 +1364,7 @@ for ($i=1; $i <= 10; $i++) {
 ?>
 ```
 
-- [ ] &shy;
+- [ ] B
 
 ```php
 <?
@@ -1414,7 +1376,7 @@ while($i>=0) {
 ?>
 ```
 
-- [ ] &shy;
+- [ ] C
 
 ```php
 <?
@@ -1424,7 +1386,7 @@ while($i>=0) {
 ?>
 ```
 
-- [x] &shy;
+- [x] D
 
 ```php
 <?
@@ -1457,7 +1419,7 @@ while($i>=0) {
 **Our country is United States of America**
 **Our country has a total of 50 states**
 
-- [ ] &shy;
+- [ ] A
 
 ```php
 1 define('country',"United States of America");
@@ -1466,7 +1428,7 @@ while($i>=0) {
 4 echo "Our country has a total of ".states." states";
 ```
 
-- [x] &shy;
+- [x] B
 
 ```php
 1 define('country',"United States of America");
@@ -1475,7 +1437,7 @@ while($i>=0) {
 4 echo "Our country has a total of ".states." states";
 ```
 
-- [ ] &shy;
+- [ ] C
 
 ```php
 1 define(country,"United States of America");
@@ -1484,7 +1446,7 @@ while($i>=0) {
 4 echo "Our country has a total of ".states." states";
 ```
 
-- [ ] &shy;
+- [ ] D
 
 ```php
 1 define('country',"United States of America");
