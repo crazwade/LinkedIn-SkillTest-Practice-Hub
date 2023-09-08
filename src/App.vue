@@ -117,7 +117,6 @@ const selectExam = ref({
   title: "",
   total: 10,
 });
-
 const dataContent = ref<{
   showAnswer: boolean;
   questions: {
@@ -136,6 +135,8 @@ const ResultDialogVisable = ref(false);
 const startExam = ref(false);
 const score = ref(0);
 const scoreRate = ref(0);
+
+// 送出答案並開啟結果畫面
 
 const checkAnswers = () => {
   score.value = 0;
@@ -156,6 +157,8 @@ const checkAnswers = () => {
   scoreRate.value = Math.floor((score.value / selectExam.value.total) * 100);
   ResultDialogVisable.value = true;
 };
+
+// 重新開始
 
 const restart = () => {
   themeTitle.value = "Linkedin Skilltest";
@@ -178,6 +181,8 @@ const selectThis = (questionsIndex: number, answer: string) => {
   dataContent.value.questions[questionsIndex].userAnswer = answer;
 };
 
+// 取得題目並洗牌
+
 const getExam = async () => {
   if (selectExam.value.title === "") return;
 
@@ -197,7 +202,7 @@ const getExam = async () => {
   startExam.value = true;
 };
 
-// 選擇主題的效果
+// 選擇主題
 
 const themeTitle = ref("Linkedin Skilltest");
 
@@ -216,9 +221,10 @@ const newTheme = () => {
   themeTitle.value = gettitle.title;
 };
 
+// 主題動畫效果
+
 const isTitleVisible = ref(true);
 
-// 間聽主題變化
 watch(
   () => selectExam.value.title,
   () => {
