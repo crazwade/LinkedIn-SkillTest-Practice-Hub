@@ -57,11 +57,17 @@
         />
       </el-select>
     </div>
-    <el-button type="primary" class="mt-5" @click="getExam">Start</el-button>
+    <button @click="getExam" class="mt-5">
+      <span
+        class="button_top block box-border border-2 border-black rounded-lg px-6 py-3 bg-white text-black transform -translate-y-1/5 transition-transform duration-100 ease-in-out"
+      >
+        Start !!
+      </span>
+    </button>
   </div>
   <div v-else>
     <el-card
-      class="exam-card max-w-screen-md mx-auto px-5 py-3 mb-8 w-[90%]"
+      class="exam-card max-w-screen-md mx-auto px-5 py-3 mb-8 w-[90%] rounded-2xl"
       v-for="(item, index) in dataContent.questions"
       :key="index"
     >
@@ -102,8 +108,20 @@
         </label>
       </div>
     </el-card>
-    <el-button type="primary" @click="checkAnswers()"> 察看結果</el-button>
-    <el-button type="info" @click="restart()"> 重來</el-button>
+    <button @click="checkAnswers" class="mt-5">
+      <span
+        class="button_top block box-border border-2 border-black rounded-lg px-6 py-3 bg-white text-black transform -translate-y-1/5 transition-transform duration-100 ease-in-out"
+      >
+        察看結果
+      </span>
+    </button>
+    <button @click="restart" class="mt-5 ml-5">
+      <span
+        class="button_top block box-border border-2 border-black rounded-lg px-6 py-3 bg-white text-black transform -translate-y-1/5 transition-transform duration-100 ease-in-out"
+      >
+        重來
+      </span>
+    </button>
   </div>
 </template>
 
@@ -268,6 +286,22 @@ watch(
   box-shadow:
     10px 30px 30px -1px rgba(0, 0, 0, 0.1),
     0 2px 40px -1px rgba(0, 0, 0, 0.06);
+}
+
+button {
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.75em;
+  background: #000000;
+}
+
+button:hover .button_top {
+  transform: translateY(-0.6em);
+}
+
+button:active .button_top {
+  transform: translateY(0);
 }
 </style>
 ./common/mdToQuestions ./data/examTitles
