@@ -1,7 +1,7 @@
 {
   "name": "linkedin-skilltest-practice-hub",
   "private": true,
-  "version": "0.0.0",
+  "version": "v1.1.8a",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
